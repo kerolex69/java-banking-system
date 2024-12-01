@@ -44,7 +44,7 @@ public class BankAccount {
     }
 
     public String getBalance() {
-        return getCurencyInEGP(balance);
+        return getCurrencyInEGP(balance);
     }
 
     public List<String> getTransactions() {
@@ -72,22 +72,22 @@ public class BankAccount {
             System.out.println("Failed to make the process .");
             throw new  IllegalArgumentException("The with draw amount must be positive and balance is greater than withdraw amount.");
         }
-
-        balance -= (amount+fee) ;
+        else
+          balance -= (amount+fee) ;
     }
     // A method used to convert the balance into EGP
-    protected String getCurencyInEGP(double value){
-        NumberFormat curency =NumberFormat.getCurrencyInstance(new Locale("EN","EG"));
-        return curency.format(balance);
+    protected String getCurrencyInEGP(double value){
+        NumberFormat currency =NumberFormat.getCurrencyInstance(new Locale("EN","EG"));
+        return currency.format(balance);
     }
 
 
     @Override
     public String toString() {
         return "BankAccount{" +"\n"+
-                "accountNumber='" + accountNumber + '\'' +"\n"+
+                  "accountNumber='" + accountNumber + '\'' +"\n"+
                 ", accountHolderName='" + accountHolderName + '\'' +"\n"+
-                ", balance=" + getCurencyInEGP(balance)  +"\n"+
+                ", balance=" + getCurrencyInEGP(balance)  +"\n"+
                 ", transactions=" + transactions +"\n"+
                 '}';
     }
